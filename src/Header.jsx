@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import HeaderNavigationLeft from "./HeaderNavigationLeft";
-import HeaderNavigationRigth from "./HeaderNavigationRigth";
 
 class Header extends Component {
   constructor(props) {
@@ -10,8 +8,22 @@ class Header extends Component {
   render() {
     return (
       <header className="header-main">
-        <HeaderNavigationLeft />
-        <HeaderNavigationRigth />
+        <div className="header-left">
+          <button className="header-left_btn">
+            <div className="header-left_btn__img"></div>
+            <div className="header-left_btn__title">Создать</div>
+          </button>
+          <button className="header-left_square">Сегодня</button>
+        </div>
+        <div className="header-rigth">
+          <button className="header-rigth_btn">
+            <i className="fas fa-angle-left"></i>
+          </button>
+          <button className="header-rigth_btn">
+            <i className="fas fa-angle-right"></i>
+          </button>
+          <h1 className="header-rigth_mounth">Июль-Август 2020</h1>
+        </div>
       </header>
     );
   }

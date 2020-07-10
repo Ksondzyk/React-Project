@@ -136,6 +136,35 @@ html {
       font-size: 5vw;
       text-align: center;
       border: 1px solid #dadce0;
+      &_time {
+        position: relative;
+        .red-line {
+          position: absolute;
+          width: 100%;
+          &_circle {
+            background: #ea4335;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            height: 12px;
+            margin-left: -6.5px;
+            margin-top: -5px;
+            width: 12px;
+            z-index: 1;
+            bottom: -33px;
+          }
+          &_line {
+            position: absolute;
+            z-index: 1;
+            border-top: #ea4335 solid 2px;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            bottom: -29px;
+          }
+        }
+      }
     }
   }
 }

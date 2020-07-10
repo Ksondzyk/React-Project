@@ -1,207 +1,34 @@
 import React from "react";
+import Week from "./Week";
 
 const RenderWeek = () => {
   return (
     <div className="rectangle">
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
-      <div className="rectangle_box"></div>
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
+      <Week />
     </div>
   );
 };
