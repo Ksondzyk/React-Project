@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 
-const Header = ({ date }) => {
-  const formatDate = (date) => moment(date).format("DD MMM YYYY");
+const Header = ({ prevMonth, NextMonth, date }) => {
+  const formatDate = (date) => moment(date).format("MMM YYYY");
   return (
     <header className="header-main">
       <div className="header-left">
@@ -13,10 +13,10 @@ const Header = ({ date }) => {
         <button className="header-left_square">Сегодня</button>
       </div>
       <div className="header-rigth">
-        <button className="header-rigth_btn">
+        <button className="header-rigth_btn" onClick={prevMonth}>
           <i className="fas fa-angle-left"></i>
         </button>
-        <button className="header-rigth_btn">
+        <button className="header-rigth_btn" onClick={NextMonth}>
           <i className="fas fa-angle-right"></i>
         </button>
         <h1 className="header-rigth_mounth">{formatDate(date)}</h1>
