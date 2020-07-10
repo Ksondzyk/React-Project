@@ -1,11 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-// var moment = require("moment"); // require
-// moment().format();
 const webpack = require("webpack");
-
+const CopyPlugin = require("copy-webpack-plugin");
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
   const config = {
@@ -28,10 +25,6 @@ module.exports = (env, argv) => {
             "sass-loader",
           ],
         },
-        {
-          test: /\.(png|jpg|gif)$/i,
-          use: ["url-loader"],
-        },
       ],
     },
     plugins: [
@@ -51,7 +44,6 @@ module.exports = (env, argv) => {
       hot: true,
     },
   };
-
   if (isProduction) {
     config.plugins.push(
       new MiniCssExtractPlugin({
@@ -59,6 +51,5 @@ module.exports = (env, argv) => {
       })
     );
   }
-
   return config;
 };
