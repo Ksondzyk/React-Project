@@ -21,7 +21,6 @@ class App extends Component {
   };
   getNextMonth = () => {
     const { date } = this.state;
-    console.log(date);
     const nextMonth = date.setDate(date.getDate() + 7);
     this.setState({
       date: nextMonth,
