@@ -1,10 +1,10 @@
 import React from "react";
-import Time from "./Time";
+import Minutes from "./Minutes";
 
 const Day = () => {
   return (
     <div className="rectangle_box">
-      <Time />
+      <Minutes />
     </div>
   );
 };

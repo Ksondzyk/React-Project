@@ -1,6 +1,6 @@
 import React from "react";
 
-const Time = () => {
+const Minutes = () => {
   return (
     <div className="rectangle_box_time">
       <div className="red-line">
@@ -11,4 +11,4 @@ const Time = () => {
   );
 };
 
-export default Time;
+export default Minutes;
