@@ -14,7 +14,7 @@ class App extends Component {
       <div className="app">
         <Header />
         <Navigation />
-        <RenderSidebar />
+        {/* <RenderSidebar /> */}
         <Popup />
       </div>
     );
