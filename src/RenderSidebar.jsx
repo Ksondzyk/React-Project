@@ -9,9 +9,11 @@ class RenderSidebar extends Component {
 
   render() {
     return (
-      <section className="time-boxes">
-        <TimeTrack />
-        <RenderWeek />
+      <section className="wrapper">
+        <div className="time-boxes">
+          <TimeTrack />
+          <RenderWeek />
+        </div>
       </section>
     );
   }
