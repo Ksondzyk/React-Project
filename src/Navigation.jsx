@@ -16,23 +16,107 @@ class Navigation extends Component {
       ],
     };
   }
+  getSevenDaysInWeek = () => {
+    const date = new Date(this.props.date);
+    console.log(date);
+    const prev = new Date(date).getDate();
+    console.log(prev);
+    const setNextMonday = new Date(date.setDate(date.getDate() + 7));
+    console.log(setNextMonday);
+    const next = new Date(setNextMonday).getDate();
+    console.log(next);
+    const days = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+    ];
+    const daysOfTheCurrentWeek = days.slice(prev - 1, next - 1);
+    console.log(daysOfTheCurrentWeek);
+    daysOfTheCurrentWeek.forEach((el, index) => {
+      this.state.weekDays[index].value = el;
+    });
+  };
 
   render() {
-    const cuttentIndexDay = new Date().getDay();
-    const movedDays = cuttentIndexDay - 1;
-    const formatDateMonth = (date) => moment(date).format("DD");
-    const currentMonday = new Date(this.props.date).getDate() - movedDays;
-    for (let i = 0; i < 7; i++) {
-      if (currentMonday + i === new Date(this.props.date).getDate()) {
-        this.state.weekDays[i].isCurrentDay = true;
-      }
-      this.state.weekDays[i].value = currentMonday + i;
-    }
-    console.log(this.state.weekDays);
+    this.getSevenDaysInWeek();
+    // const date = new Date(this.props.date);
+    // console.log(date);
+    // const prev = new Date(date).getDate();
+    // const setNextMonday = new Date(date.setDate(date.getDate() + 7));
+    // console.log(setNextMonday);
+    // const next = new Date(setNextMonday).getDate();
+    // const days = [
+    //   "1",
+    //   "2",
+    //   "3",
+    //   "4",
+    //   "5",
+    //   "6",
+    //   "7",
+    //   "8",
+    //   "9",
+    //   "10",
+    //   "11",
+    //   "12",
+    //   "13",
+    //   "14",
+    //   "15",
+    //   "16",
+    //   "17",
+    //   "18",
+    //   "19",
+    //   "20",
+    //   "21",
+    //   "22",
+    //   "23",
+    //   "24",
+    //   "25",
+    //   "26",
+    //   "27",
+    //   "28",
+    //   "29",
+    //   "30",
+    //   "31",
+    // ];
+    // const daysOfTheCurrentWeek = days.slice(prev - 1, next - 1);
+    // console.log(daysOfTheCurrentWeek);
+    // daysOfTheCurrentWeek.forEach((el, index) => {
+    //   this.state.weekDays[index].value = el;
+    // });
+    // console.log(this.state.weekDays);
+    const { weekDays } = this.state;
     return (
       <section className="date-container">
         <div className="day-container timezone">GMT+02</div>
-        {this.state.weekDays.map(({ id, value }) => (
+        {weekDays.map(({ id, value }) => (
           <div className="day-container" key={id}>
             <h1 className="day-container_text">{id}</h1>
             <h2 className="day-container_number">{value}</h2>

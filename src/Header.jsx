@@ -46,3 +46,5 @@ const Header = ({ prevMonth, NextMonth, date }) => {
 };
 
 export default Header;
+// const fistDayOfMonth = days[new Date(d.getFullYear(), d.getMonth(), 1)];
+// const LastDayOfMonth = days[new Date(d.getFullYear(), d.getMonth() + 1, 0)];
