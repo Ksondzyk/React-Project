@@ -3,32 +3,15 @@ import Header from "./Header";
 import Navigation from "./Navigation";
 import RenderSidebar from "./RenderSidebar";
 import Popup from "./Popup";
-import moment from "moment";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date(),
-      lastDayInMonth: "",
-      lastDayInPreviousMonth: "",
+      date: new Date(this.props.getMonday),
     };
+    console.log(this.state.date);
   }
-  getFirstDayInMonth = () => {
-    const d = new Date();
-    const LastDayOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
-    this.setState({
-      lastDayInMonth: LastDayOfMonth,
-    });
-  };
-  getLastDayInPreviousMonth = () => {
-    const d = new Date();
-    const lastDayOfMonth = new Date(d.getFullYear(), d.getMonth() - 1, 0);
-    console.log(lastDayOfMonth);
-    this.setState({
-      lastDayInPreviousMonth: lastDayOfMonth,
-    });
-  };
 
   getPreviousMonth = () => {
     const { getMonday } = this.props;
