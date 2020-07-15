@@ -1,9 +1,35 @@
 import React from "react";
 import moment from "moment";
 
-const Header = ({ prevMonth, NextMonth, date }) => {
+const Header = ({ prevMonth, nextMonth, date, currentDay }) => {
   const formatDateMonth = (date) => moment(date).format("MMM");
   const formatDateYear = (date) => moment(date).format("YYYY");
+  const monday = new Date(date);
+  const getFirstWeek = new Date(monday).getMonth();
+  const nextSixDay = monday.setDate(monday.getDate() + 6);
+  const getLastWeek = new Date(nextSixDay).getMonth();
+  const plusMonth = monday.setMonth(monday.getMonth());
+  let result;
+  if (getFirstWeek === getLastWeek) {
+    result = (
+      <>
+        <div className="header-rigth_mounth_main">{formatDateMonth(date)}</div>
+        <div className="header-rigth_mounth_main">{formatDateYear(date)}</div>
+      </>
+    );
+  } else {
+    result = (
+      <>
+        <div className="header-rigth_mounth_main">{formatDateMonth(date)}</div>
+        <span className="header-rigth_mounth_dash">-</span>
+        <div className="header-rigth_mounth_main">
+          {formatDateMonth(plusMonth)}
+        </div>
+        <div className="header-rigth_mounth_main">{formatDateYear(date)}</div>
+      </>
+    );
+  }
+
   return (
     <header className="header-main">
       <div className="header-left">
@@ -23,28 +49,20 @@ const Header = ({ prevMonth, NextMonth, date }) => {
 
           <div className="header-left_btn__title">Создать</div>
         </button>
-        <button className="header-left_square">Сегодня</button>
+        <button className="header-left_square" onClick={currentDay}>
+          Сегодня
+        </button>
       </div>
       <div className="header-rigth">
         <button className="header-rigth_btn" onClick={prevMonth}>
           <i className="fas fa-angle-left"></i>
         </button>
-        <button className="header-rigth_btn" onClick={NextMonth}>
+        <button className="header-rigth_btn" onClick={nextMonth}>
           <i className="fas fa-angle-right"></i>
         </button>
-        <div className="header-rigth_mounth">
-          <div className="header-rigth_mounth_main">
-            {formatDateMonth(date)}
-          </div>
-          <div className="header-rigth_mounth_main">{formatDateYear(date)}</div>
-          <span className="header-rigth_mounth_notmain">-</span>
-          <div className="header-rigth_mounth_notmain"></div>
-        </div>
+        <div className="header-rigth_mounth">{result}</div>
       </div>
     </header>
   );
 };
-
 export default Header;
-// const fistDayOfMonth = days[new Date(d.getFullYear(), d.getMonth(), 1)];
-// const LastDayOfMonth = days[new Date(d.getFullYear(), d.getMonth() + 1, 0)];

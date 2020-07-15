@@ -66,9 +66,12 @@ html {
       justify-content: center;
       align-items: center;
       font-size: 30px;
-      // &_notmain {
-      //   display: none;
-      // }
+      &_main {
+        margin-left: 12px;
+      }
+      &_dash {
+        margin-left: 12px;
+      }
     }
   }
 }

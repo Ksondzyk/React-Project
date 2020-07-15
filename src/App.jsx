@@ -10,7 +10,6 @@ class App extends Component {
     this.state = {
       date: new Date(this.props.getMonday),
     };
-    console.log(this.state.date);
   }
 
   getPreviousMonth = () => {
@@ -27,13 +26,19 @@ class App extends Component {
       date: nextMonth,
     });
   };
+  getCurrentDay = () => {
+    this.setState({
+      date: new Date(),
+    });
+  };
   render() {
     return (
       <div className="app">
         <Header
           date={this.state.date}
           prevMonth={this.getPreviousMonth}
-          NextMonth={this.getNextMonth}
+          nextMonth={this.getNextMonth}
+          currentDay={this.getCurrentDay}
         />
         <Navigation date={this.state.date} />
         <RenderSidebar />
