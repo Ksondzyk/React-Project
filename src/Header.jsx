@@ -3,7 +3,7 @@ import moment from "moment";
 
 const Header = ({ prevMonth, NextMonth, date }) => {
   const formatDateMonth = (date) => moment(date).format("MMM");
-  const formatDateYear = (date) => moment(date).format(" YYYY");
+  const formatDateYear = (date) => moment(date).format("YYYY");
   return (
     <header className="header-main">
       <div className="header-left">
