@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-const Header = ({ prevMonth, nextMonth, date, currentDay }) => {
+const Header = ({ prevMonth, nextMonth, date, currentDay, popup }) => {
   const formatDateMonth = (date) => moment(date).format("MMM");
   const formatDateYear = (date) => moment(date).format("YYYY");
   const monday = new Date(date);
@@ -47,7 +47,9 @@ const Header = ({ prevMonth, nextMonth, date, currentDay }) => {
             <path fill="none" d="M0 0h36v36H0z"></path>
           </svg>
 
-          <div className="header-left_btn__title">Создать</div>
+          <div className="header-left_btn__title" onClick={popup}>
+            Создать
+          </div>
         </button>
         <button className="header-left_square" onClick={currentDay}>
           Сегодня

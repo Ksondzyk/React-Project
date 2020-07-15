@@ -1,16 +1,16 @@
 import React from "react";
 import Day from "./Day";
 
-const Week = () => {
+const Week = ({ popup }) => {
   return (
     <>
-      <Day />
-      <Day />
-      <Day />
-      <Day />
-      <Day />
-      <Day />
-      <Day />
+      <Day popup={popup} />
+      <Day popup={popup} />
+      <Day popup={popup} />
+      <Day popup={popup} />
+      <Day popup={popup} />
+      <Day popup={popup} />
+      <Day popup={popup} />
     </>
   );
 };

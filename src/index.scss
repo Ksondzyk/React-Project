@@ -229,14 +229,14 @@ html {
 }
 .popup {
   position: absolute;
-  top: 25vh;
+  top: 15vh;
   z-index: 1;
   width: 100%;
   height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
+
   .popup-form {
     display: flex;
     flex-direction: column;

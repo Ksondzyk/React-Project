@@ -1,11 +1,11 @@
 import React from "react";
 
-const Popup = () => {
+const Popup = ({ popup }) => {
   return (
     <section className="popup">
       <form className="popup-form">
         <div className="name-events">
-          <button className="name-events_btn">
+          <button className="name-events_btn" onClick={popup}>
             <i className="far fa-times-circle"></i>
           </button>
           <input

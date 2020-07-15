@@ -9,7 +9,9 @@ class App extends Component {
     super(props);
     this.state = {
       date: new Date(this.props.getMonday),
+      popup: false,
     };
+    console.log(this.state.popup);
   }
 
   getPreviousMonth = () => {
@@ -31,18 +33,31 @@ class App extends Component {
       date: new Date(),
     });
   };
+  getPopup = () => {
+    this.setState({
+      popup: true,
+    });
+  };
+  closePopup = () => {
+    this.setState({
+      popup: true,
+    });
+  };
   render() {
+    const { date } = this.state;
+    const { popup } = this.state;
     return (
       <div className="app">
         <Header
-          date={this.state.date}
+          date={date}
           prevMonth={this.getPreviousMonth}
           nextMonth={this.getNextMonth}
           currentDay={this.getCurrentDay}
+          popup={this.getPopup}
         />
-        <Navigation date={this.state.date} />
-        <RenderSidebar />
-        <Popup />
+        <Navigation date={date} />
+        <RenderSidebar popup={this.getPopup} />
+        {popup ? <Popup popup={this.closePopup} /> : null}
       </div>
     );
   }
