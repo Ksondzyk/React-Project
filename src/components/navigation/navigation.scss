@@ -1,0 +1,74 @@
+.date-container {
+  width: 98.9vw;
+  display: grid;
+  grid-template-rows: 8rem;
+  grid-auto-rows: 5rem;
+  grid-template-columns: 5.28rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  position: relative;
+  .day-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #dadce0;
+    &::before {
+      content: "";
+      position: absolute;
+      border-right: 1px solid #dadce0;
+      bottom: -0;
+      height: 20px;
+      margin-left: -12.8rem;
+    }
+    &_text {
+      font-size: 18px;
+      color: #70757a;
+    }
+    &_number {
+      font-size: 25px;
+      color: #70757a;
+      font-weight: 600;
+      margin-top: 1rem;
+      &:hover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        height: 50px;
+        width: 50px;
+        background-color: #70757a;
+        color: white;
+        border-radius: 50%;
+        margin: 0;
+      }
+    }
+    .current-day {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      height: 50px;
+      width: 50px;
+      background-color: blue;
+      color: white;
+      border-radius: 50%;
+      margin: 0;
+    }
+    .radius {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      height: 50px;
+      width: 50px;
+      background-color: #1a73e8;
+      color: white;
+      border-radius: 50%;
+      margin: 0;
+    }
+  }
+  .timezone {
+    justify-content: flex-end;
+    align-items: flex-start;
+    left: -3px;
+  }
+}

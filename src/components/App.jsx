@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import Navigation from "./Navigation";
-import RenderSidebar from "./RenderSidebar";
-import Popup from "./Popup";
+import Header from "./header/Header";
+import Navigation from "./navigation/Navigation";
+import RenderSidebar from "./sitebar/rendersiteBar/RenderSidebar";
+import Popup from "./popup/Popup";
 
 class App extends Component {
   constructor(props) {
@@ -10,8 +10,9 @@ class App extends Component {
     this.state = {
       date: new Date(this.props.getMonday),
       popup: false,
+      currentBox: "",
     };
-    console.log(this.state.popup);
+    console.log(this.state.currentBox);
   }
 
   getPreviousMonth = () => {
@@ -33,14 +34,15 @@ class App extends Component {
       date: new Date(),
     });
   };
-  getPopup = () => {
+  getPopup = (e) => {
     this.setState({
       popup: true,
+      cuttentBox: e.target.value,
     });
   };
-  closePopup = () => {
+  closePopup = (e) => {
     this.setState({
-      popup: true,
+      popup: false,
     });
   };
   render() {
@@ -56,7 +58,11 @@ class App extends Component {
           popup={this.getPopup}
         />
         <Navigation date={date} />
-        <RenderSidebar popup={this.getPopup} />
+        <RenderSidebar
+          popup={this.getPopup}
+          event={this.state.popup}
+          currentBox={this.state.currentBox}
+        />
         {popup ? <Popup popup={this.closePopup} /> : null}
       </div>
     );

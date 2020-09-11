@@ -6,7 +6,7 @@ const Popup = ({ popup }) => {
       <form className="popup-form">
         <div className="name-events">
           <button className="name-events_btn" onClick={popup}>
-            <i className="far fa-times-circle"></i>
+            <i className="fas fa-times-circle"></i>
           </button>
           <input
             type="text"

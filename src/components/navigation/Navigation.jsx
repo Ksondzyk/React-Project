@@ -1,5 +1,6 @@
 import React from "react";
-import generateWeekRange from "./generateWeekRange.js";
+import "./navigation.scss";
+import generateWeekRange from "../../generateWeekRange.js";
 
 const Navigation = ({ date }) => {
   const week = generateWeekRange(new Date(date));

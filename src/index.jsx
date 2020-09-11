@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "./App";
+import App from "./components/App";
 const getMonday = () => {
   const now = new Date();
   const getFirstWeekDay = new Date(

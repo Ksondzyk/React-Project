@@ -1,4 +1,5 @@
 import React from "react";
+import "./header.scss";
 import moment from "moment";
 
 const Header = ({ prevMonth, nextMonth, date, currentDay, popup }) => {
@@ -56,12 +57,14 @@ const Header = ({ prevMonth, nextMonth, date, currentDay, popup }) => {
         </button>
       </div>
       <div className="header-rigth">
-        <button className="header-rigth_btn" onClick={prevMonth}>
-          <i className="fas fa-angle-left"></i>
-        </button>
-        <button className="header-rigth_btn" onClick={nextMonth}>
-          <i className="fas fa-angle-right"></i>
-        </button>
+        <div className="header-rigth_buttons">
+          <button className="header-rigth_btn" onClick={prevMonth}>
+            <i className="fas fa-angle-left"></i>
+          </button>
+          <button className="header-rigth_btn" onClick={nextMonth}>
+            <i className="fas fa-angle-right"></i>
+          </button>
+        </div>
         <div className="header-rigth_mounth">{result}</div>
       </div>
     </header>

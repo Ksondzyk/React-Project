@@ -1,0 +1,10 @@
+.wrapper {
+  overflow: hidden;
+  width: 100vw;
+  .time-boxes {
+    display: flex;
+    position: relative;
+    overflow-y: scroll;
+    height: 70vh;
+  }
+}
