@@ -1,11 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import { calendarPopupSelector } from "../calendar.selectors";
+import * as calendarActions from "../calendar.actions";
+import "./popup.scss";
 
-const Popup = ({ popup }) => {
+const Popup = ({ popupStatus, closePopup }) => {
+  const onClosePopup = (event) => {
+    event.preventDefault();
+    closePopup(!popupStatus);
+  };
   return (
-    <section className="popup">
+    <section className={`popup ${popupStatus ? "visible" : null}`}>
       <form className="popup-form">
         <div className="name-events">
-          <button className="name-events_btn" onClick={popup}>
+          <button className="name-events_btn" onClick={onClosePopup}>
             <i className="fas fa-times-circle"></i>
           </button>
           <input
@@ -86,4 +94,13 @@ const Popup = ({ popup }) => {
   );
 };
 
-export default Popup;
+const mapState = (state) => {
+  return {
+    popupStatus: calendarPopupSelector(state),
+  };
+};
+const mapDispatch = {
+  closePopup: calendarActions.getPopup,
+};
+
+export default connect(mapState, mapDispatch)(Popup);

@@ -1,8 +1,17 @@
 import React from "react";
 import "./header.scss";
+import { connect } from "react-redux";
+import * as calendarActions from "../calendar.actions";
+import { calendarPopupSelector } from "../calendar.selectors";
 import moment from "moment";
 
-const Header = ({ prevMonth, nextMonth, date, currentDay, popup }) => {
+const Header = ({ popupStatus, popupState }) => {
+  console.log(popupState);
+
+  const receivePopup = (event) => {
+    popupStatus(!popupState);
+  };
+  const date = new Date();
   const formatDateMonth = (date) => moment(date).format("MMM");
   const formatDateYear = (date) => moment(date).format("YYYY");
   const monday = new Date(date);
@@ -34,7 +43,7 @@ const Header = ({ prevMonth, nextMonth, date, currentDay, popup }) => {
   return (
     <header className="header-main">
       <div className="header-left">
-        <button className="header-left_btn">
+        <button className="header-left_btn" onClick={receivePopup}>
           <svg
             className="header-left_btn__img"
             width="36"
@@ -48,26 +57,30 @@ const Header = ({ prevMonth, nextMonth, date, currentDay, popup }) => {
             <path fill="none" d="M0 0h36v36H0z"></path>
           </svg>
 
-          <div className="header-left_btn__title" onClick={popup}>
-            Создать
-          </div>
+          <div className="header-left_btn__title">Создать</div>
         </button>
-        <button className="header-left_square" onClick={currentDay}>
-          Сегодня
-        </button>
+        <button className="header-left_square">Сегодня</button>
       </div>
       <div className="header-rigth">
         <div className="header-rigth_buttons">
-          <button className="header-rigth_btn" onClick={prevMonth}>
+          <button className="header-rigth_btn">
             <i className="fas fa-angle-left"></i>
           </button>
-          <button className="header-rigth_btn" onClick={nextMonth}>
+          <button className="header-rigth_btn">
             <i className="fas fa-angle-right"></i>
           </button>
         </div>
-        <div className="header-rigth_mounth">{result}</div>
+        <div className="header-rigth_mounth"></div>
       </div>
     </header>
   );
 };
-export default Header;
+const mapState = (state) => {
+  return {
+    popupState: calendarPopupSelector(state),
+  };
+};
+const mapDispatch = {
+  popupStatus: calendarActions.getPopup,
+};
+export default connect(mapState, mapDispatch)(Header);
