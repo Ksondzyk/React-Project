@@ -1,25 +1,56 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
-import { calendarPopupSelector } from "../calendar.selectors";
+import classNames from "classnames";
+import {
+  calendarPopupSelector,
+  calendarCellIdSelector,
+} from "../calendar.selectors";
 import * as calendarActions from "../calendar.actions";
 import "./popup.scss";
 
-const Popup = ({ popupStatus, closePopup }) => {
+const Popup = ({
+  popupStatus,
+  closePopup,
+  saveDate,
+  eventDate,
+  createEvent,
+  getCellId,
+}) => {
   const onClosePopup = (event) => {
     event.preventDefault();
     closePopup(!popupStatus);
   };
+  const [state, setUpdateState] = useState({ title: "", comment: "" });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUpdateState({
+      ...state,
+      [name]: value,
+      cellId: getCellId,
+    });
+  };
+  // console.log(state);
+  const handleSumbit = (event) => {
+    event.preventDefault();
+    createEvent(state);
+    eventDate(state);
+    saveDate("12");
+    closePopup(!popupStatus);
+  };
+
   return (
-    <section className={`popup ${popupStatus ? "visible" : null}`}>
-      <form className="popup-form">
+    <section className={classNames("popup", { visible: popupStatus })}>
+      <form className="popup-form" onSubmit={handleSumbit}>
         <div className="name-events">
           <button className="name-events_btn" onClick={onClosePopup}>
             <i className="fas fa-times-circle"></i>
           </button>
           <input
             type="text"
-            onChange=""
-            value="Breakfast width friends"
+            name="title"
+            onChange={handleChange}
+            placeholder="Breakfast width friends"
+            value={state.title}
             className="name-events_input"
           />
         </div>
@@ -32,6 +63,7 @@ const Popup = ({ popupStatus, closePopup }) => {
             name="date"
             list="dates"
             value="1 февраля 2020"
+            onChange={handleChange}
           />
           <datalist id="dates" className="date-events_list">
             <option className="date-events_list__elem" value="1 февраля 2020" />
@@ -45,6 +77,7 @@ const Popup = ({ popupStatus, closePopup }) => {
             name="Time"
             list="prevTime"
             value="15: 30"
+            onChange={handleChange}
           />
           <datalist id="prevTime" className="date-events_list">
             <option className="date-events_list__elem" value="11 : 30" />
@@ -59,6 +92,7 @@ const Popup = ({ popupStatus, closePopup }) => {
             name="Time"
             list="nextTime"
             value="16: 30"
+            onChange={handleChange}
           />
           <datalist id="nextTime" className="date-events_list">
             <option className="date-events_list__elem" value="16 : 30" />
@@ -81,6 +115,10 @@ const Popup = ({ popupStatus, closePopup }) => {
               form="text"
               className="description_textarea__input"
               placeholder="Добавьте описание"
+              onChange={handleChange}
+              value={state.comment}
+              rows="12"
+              cols="45"
             ></textarea>
           </div>
         </div>
@@ -97,10 +135,14 @@ const Popup = ({ popupStatus, closePopup }) => {
 const mapState = (state) => {
   return {
     popupStatus: calendarPopupSelector(state),
+    getCellId: calendarCellIdSelector(state),
   };
 };
 const mapDispatch = {
   closePopup: calendarActions.getPopup,
+  saveDate: calendarActions.getCellValue,
+  eventDate: calendarActions.eventDataReceived,
+  createEvent: calendarActions.createEvent,
 };
 
 export default connect(mapState, mapDispatch)(Popup);

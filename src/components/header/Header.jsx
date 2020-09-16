@@ -1,15 +1,17 @@
 import React from "react";
 import "./header.scss";
+import moment from "moment";
 import { connect } from "react-redux";
 import * as calendarActions from "../calendar.actions";
 import { calendarPopupSelector } from "../calendar.selectors";
-import moment from "moment";
 
 const Header = ({ popupStatus, popupState }) => {
-  console.log(popupState);
-
   const receivePopup = (event) => {
     popupStatus(!popupState);
+  };
+
+  const getNextWeek = () => {
+    console.log(moment().weekday(14));
   };
   const date = new Date();
   const formatDateMonth = (date) => moment(date).format("MMM");
@@ -62,7 +64,7 @@ const Header = ({ popupStatus, popupState }) => {
         <button className="header-left_square">Сегодня</button>
       </div>
       <div className="header-rigth">
-        <div className="header-rigth_buttons">
+        <div className="header-rigth_buttons" onClick={getNextWeek}>
           <button className="header-rigth_btn">
             <i className="fas fa-angle-left"></i>
           </button>

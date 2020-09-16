@@ -2,8 +2,8 @@ import React from "react";
 import "./navigation.scss";
 import generateWeekRange from "../../generateWeekRange.js";
 
-const Navigation = ({ date }) => {
-  const week = generateWeekRange(new Date(date));
+const Navigation = () => {
+  const week = generateWeekRange(new Date());
   return (
     <section className="date-container">
       <div className="day-container timezone">GMT+02</div>

@@ -1,18 +1,12 @@
 import React from "react";
 import Day from "../day/Day";
+import { getFilledArray } from "../../../fillArray/getFillArray";
 
-const Week = ({ popup, event, id }) => {
-  const arrDays = new Array(7).fill(1).map((el, index) => index);
+const Week = ({ value }) => {
   return (
     <>
-      {arrDays.map((el, index) => (
-        <Day
-          popup={popup}
-          event={event}
-          key={el}
-          idDay={index.toString() + parseInt(Math.random() * 36)}
-          idWeek={id + 7}
-        />
+      {getFilledArray(25).map((el) => (
+        <Day key={el} weekDay={el} dayTime={value} />
       ))}
     </>
   );

@@ -43,6 +43,7 @@ module.exports = (env, argv) => {
     devServer: {
       hot: true,
     },
+ 
   };
   if (isProduction) {
     config.plugins.push(
